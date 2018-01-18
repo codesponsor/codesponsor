@@ -7,13 +7,14 @@ name = "pypi"
 
 [packages]
 
-Django = "*"
+django = "*"
 django-environ = "*"
 "psycopg2" = "*"
 dj-database-url = "*"
 gunicorn = "*"
 "boto3" = "==1.5.0"
 django-storages = "==1.6.3"
+rollbar = "*"
 
 
 [dev-packages]
