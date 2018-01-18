@@ -46,7 +46,7 @@ ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR('templates')]
+        'DIRS': [root.path('templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
