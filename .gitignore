@@ -112,3 +112,5 @@ ENV/
 .mypy_cache/
 
 local_settings.py
+static/*
+assets/*
