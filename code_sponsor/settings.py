@@ -1,25 +1,26 @@
-from configurations import Configuration
+import socket
+import environ
 
-import os
+
+root = environ.Path(__file__) - 2         # Set the base directory to two levels
+env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
+env.read_env(str(root.path('app/.env')))  # reading .env file
+DEBUG = env.bool('DEBUG', default=True)
+ENV = env('ENV', default='local')
+HOSTNAME = env('HOSTNAME', default=socket.gethostname())
+
+BASE_URL = env('BASE_URL', default='http://localhost:8000/')
+SECRET_KEY = env('SECRET_KEY', default='YOUR-SupEr-SecRet-KeY')
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = root()
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2$px2#m=$phns@v65#-imqa_@&k+0w(t)01vzq18e!f!b!5pp0'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,12 +41,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'code_sponsor.urls'
+ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [BASE_DIR('templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -59,27 +60,16 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'code_sponsor.wsgi.application'
-
+WSGI_APPLICATION = env('WSGI_APPLICATION', default='code_sponsor.wsgi.application')
 
 # Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'consensys_cs_production',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    'default': env.db(),
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -98,25 +88,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+LANGUAGE_CODE = env('LANGUAGE_CODE', default='en-us')
+USE_I18N = env.bool('USE_I18N', default=True)
+USE_L10N = env.bool('USE_L10N', default=True)
+USE_TZ = env.bool('USE_TZ', default=True)
+TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-
-# Include local settings overrides
-try:
-  from .local_settings import *
-except ImportError:
-  pass
+STATICFILES_DIRS = env.tuple('STATICFILES_DIRS', default=('assets/', ))
+STATIC_ROOT = root('static')
+STATIC_URL = env('STATIC_URL', default='/static/')
