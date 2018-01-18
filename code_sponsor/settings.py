@@ -4,7 +4,12 @@ import environ
 
 root = environ.Path(__file__) - 2         # Set the base directory to two levels
 env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
-env.read_env(str(root.path('app/.env')))  # reading .env file
+
+try:
+    env.read_env(str(root.path('app/.env')))  # reading .env file
+except:
+    pass
+
 DEBUG = env.bool('DEBUG', default=True)
 ENV = env('ENV', default='local')
 HOSTNAME = env('HOSTNAME', default=socket.gethostname())
