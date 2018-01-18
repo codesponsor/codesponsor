@@ -12,8 +12,8 @@ django-environ = "*"
 "psycopg2" = "*"
 dj-database-url = "*"
 gunicorn = "*"
-"boto3" = "*"
-django-storages = "*"
+"boto3" = "==1.5.0"
+django-storages = "==1.6.3"
 
 
 [dev-packages]

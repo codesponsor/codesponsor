@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "34a46b424cd2e4bf30a82beb38949f8bb48ce32e1d567ae86a02a9758b1e9d03"
+            "sha256": "cbf139444721ccb8c33e0e8275e9c7e5784fa2bfa4a5423d3b887c41246b9ffd"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -31,10 +31,10 @@
     "default": {
         "boto3": {
             "hashes": [
-                "sha256:744b5080ea8cefb9d831e21e959ab1bd46a5c0918fdd806534090546137a355a",
-                "sha256:8178acd18c8bc92e35eaf6dd4e9900ccc2ccc927b5d64d42f87816118de67646"
+                "sha256:a29dcc184a3e27d6e9cb5e48822d9030bab5725a1dfa91753e1ae0fa8d044bb1",
+                "sha256:02f92bdfa316524b94647efaed31b0e1b0d1343fcaffda20c2b5331d02a4dda6"
             ],
-            "version": "==1.5.18"
+            "version": "==1.5.0"
         },
         "botocore": {
             "hashes": [
@@ -66,10 +66,10 @@
         },
         "django-storages": {
             "hashes": [
-                "sha256:ab6be1538cf29511400bce83d0e5ca74d2e935cad82086063bcf5e7edacc1661",
-                "sha256:bc8e4c1f483608c5dd1212072fd41042f3ef2d2a2896ec4fb12dbc62c82996a0"
+                "sha256:7c99fda8a4f39818ffee3cf6699fce5ecb4d763adb0bc89c33eed206e94054d3",
+                "sha256:c8e33caf6270a1d64958361923fdd1a5e8b20207fe12a694f8787529794fe4b8"
             ],
-            "version": "==1.6.5"
+            "version": "==1.6.3"
         },
         "docutils": {
             "hashes": [

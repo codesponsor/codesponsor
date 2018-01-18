@@ -1,8 +1,7 @@
 import socket
 import environ
 
-
-root = environ.Path(__file__) - 2         # Set the base directory to two levels
+root = environ.Path(__file__) - 2  # Set the base directory to two levels
 env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
 
 try:
@@ -13,15 +12,9 @@ except:
 DEBUG = env.bool('DEBUG', default=True)
 ENV = env('ENV', default='local')
 HOSTNAME = env('HOSTNAME', default=socket.gethostname())
-
 BASE_URL = env('BASE_URL', default='http://localhost:8000/')
 SECRET_KEY = env('SECRET_KEY', default='YOUR-SupEr-SecRet-KeY')
-
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = root()
-
-
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 
@@ -102,7 +95,6 @@ TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
 
-
 # AWS
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default='MISSING')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY', default='MISSING')
@@ -112,6 +104,10 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
 STATICFILES_DIRS = env.tuple('STATICFILES_DIRS', default=('assets/', ))
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'app.storages.S3HashedStorage'
