@@ -113,4 +113,3 @@ ENV/
 
 local_settings.py
 static/*
-assets/*

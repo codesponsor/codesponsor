@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -100,9 +101,17 @@ USE_TZ = env.bool('USE_TZ', default=True)
 TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+
+# AWS
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default='MISSING')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY', default='MISSING')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME', default='codesponsor')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
 STATICFILES_DIRS = env.tuple('STATICFILES_DIRS', default=('assets/', ))
-STATIC_ROOT = root('static')
-STATIC_URL = env('STATIC_URL', default='/static/')
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
