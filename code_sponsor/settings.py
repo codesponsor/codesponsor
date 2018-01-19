@@ -122,7 +122,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=94608000',
 }
 
-if DEBUG:
+if DEBUG == True:
     STATIC_URL = '/static/'
     STATIC_DIR = str(root.path('static'))
     STATICFILES_DIRS = [STATIC_DIR]
