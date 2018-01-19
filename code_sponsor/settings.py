@@ -121,9 +121,12 @@ AWS_S3_OBJECT_PARAMETERS = {
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl': 'max-age=94608000',
 }
-STATICFILES_DIRS = env.tuple('STATICFILES_DIRS', default=('assets/', ))
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'app.storages.S3HashedStorage'
+S3_STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+S3_STATICFILES_STORAGE = 'app.storages.S3HashedStorage'
+STATIC_URL = '/static/' if DEBUG else S3_STATIC_URL
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' if DEBUG else S3_STATICFILES_STORAGE
+STATIC_DIR = str(root.path('static'))
+STATICFILES_DIRS = [STATIC_DIR]
 
 ROLLBAR = {
     'access_token': env(
