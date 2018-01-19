@@ -17,7 +17,6 @@ SECRET_KEY = env('SECRET_KEY', default='YOUR-SupEr-SecRet-KeY')
 BASE_DIR = root()
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'home',
     'storages',
     'allauth',
     'allauth.account',
@@ -62,6 +62,10 @@ TEMPLATES = [
 
                 # `allauth` needs this from django
                 'django.template.context_processors.request',
+
+                # google analytics
+                'app.context_processors.ga_tracking_id',
+                'app.context_processors.use_ga',
             ],
         },
     },
@@ -149,3 +153,7 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+GA_TRACKING_ID = env('GA_TRACKING_ID', default='MISSING')
+USE_GA = env('DJANGO_USE_GA', default='False')
+USE_GA = {'True': True, 'False': False}.get(USE_GA, False)
