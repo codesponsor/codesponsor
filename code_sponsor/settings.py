@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
@@ -108,9 +109,9 @@ TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
 # Static Assets
+STATIC_ROOT = str(root.path('static'))
 STATIC_URL = '/static/'
-STATIC_DIR = str(root.path('static'))
-STATICFILES_DIRS = [STATIC_DIR,]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROLLBAR = {
     'access_token': env(

@@ -16,6 +16,7 @@ gunicorn = "*"
 django-storages = "==1.6.3"
 rollbar = "*"
 django-allauth = "*"
+whitenoise = "*"
 
 
 [dev-packages]
