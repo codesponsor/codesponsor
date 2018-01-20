@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
@@ -107,28 +108,10 @@ USE_TZ = env.bool('USE_TZ', default=True)
 TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
-
-# AWS
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID', default='MISSING')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY', default='MISSING')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME', default='codesponsor')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'static'
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000',
-}
-
-if DEBUG == True:
-    STATIC_URL = '/static/'
-    STATIC_DIR = str(root.path('static'))
-    STATICFILES_DIRS = [STATIC_DIR]
-else:
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-    STATICFILES_STORAGE = 'app.storages.S3HashedStorage'
+# Static Assets
+STATIC_ROOT = str(root.path('static'))
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROLLBAR = {
     'access_token': env(
