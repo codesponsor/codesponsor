@@ -3,11 +3,11 @@ import environ
 
 root = environ.Path(__file__) - 2  # Set the base directory to two levels
 env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
-
-try:
-    env.read_env(str(root.path('app/.env')))  # reading .env file
-except:
-    pass
+env.read_env()
+# try:
+#     env.read_env(str(root.path('app/.env')))  # reading .env file
+# except:
+#     pass
 
 DEBUG = env.bool('DEBUG', default=True)
 ENV = env('ENV', default='local')
@@ -109,8 +109,11 @@ TIME_ZONE = env('TIME_ZONE', default='UTC')
 
 
 # Static Assets
-STATIC_ROOT = str(root.path('static'))
+STATIC_ROOT = str(root.path('staticfiles'))
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    str(root.path('static')),
+]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROLLBAR = {
