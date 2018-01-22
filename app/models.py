@@ -6,6 +6,8 @@ from django.template.defaultfilters import slugify
 class Sponsor(models.Model):
     name = models.CharField(max_length=128)
     slug = models.SlugField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -18,6 +20,8 @@ class Sponsor(models.Model):
 class Property(models.Model):
     name = models.CharField(max_length=128)
     url = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = 'Properties'
@@ -31,6 +35,8 @@ class Sponsorship(models.Model):
     sponsor = models.ForeignKey(Sponsor, on_delete=models.CASCADE)
     redirect_url = models.URLField()
     token = models.CharField(max_length=64, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.token:
