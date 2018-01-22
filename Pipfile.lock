@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c2905851aac83f5a60831d1409bf0a97d0a0c85b43a05c739ad2998704f5f415"
+            "sha256": "6b4e4c2d123f903e0e8f26a05bafb1f381399d9d5bb2075f8e85b5004879bda6"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -91,6 +91,12 @@
             ],
             "version": "==0.4.4"
         },
+        "django-netfields": {
+            "hashes": [
+                "sha256:5c8d4840652799e290849590c013a112da069f47e89e1064ed18671cac26268c"
+            ],
+            "version": "==0.8"
+        },
         "django-storages": {
             "hashes": [
                 "sha256:7c99fda8a4f39818ffee3cf6699fce5ecb4d763adb0bc89c33eed206e94054d3",
@@ -126,6 +132,13 @@
                 "sha256:6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64"
             ],
             "version": "==0.9.3"
+        },
+        "netaddr": {
+            "hashes": [
+                "sha256:56b3558bd71f3f6999e4c52e349f38660e54a7a8a9943335f73dfc96883e08ca",
+                "sha256:38aeec7cdd035081d3a4c306394b19d677623bf76fa0913f6695127c7753aefd"
+            ],
+            "version": "==0.7.19"
         },
         "oauthlib": {
             "hashes": [
