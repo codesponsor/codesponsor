@@ -10,6 +10,8 @@ class Click(models.Model):
     user_agent = models.TextField()
     is_bot = models.BooleanField(default=False)
     referer = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.ip_address
@@ -22,6 +24,8 @@ class Impression(models.Model):
     ip_address = models.GenericIPAddressField()
     user_agent = models.TextField()
     is_bot = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.ip_address
