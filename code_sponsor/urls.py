@@ -18,9 +18,11 @@ from django.urls import include
 from django.conf.urls import url
 
 from home import views
+from track import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^', include('home.urls', namespace='home'))
+    url(r'^t/', include('track.urls', namespace='track')),
+    url(r'^', include('home.urls', namespace='home')),
 ]
