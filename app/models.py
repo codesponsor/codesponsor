@@ -11,3 +11,14 @@ class Sponsor(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Property(models.Model):
+    name = models.CharField(max_length=128)
+    url = models.URLField()
+
+    class Meta:
+        verbose_name_plural = 'Properties'
+
+    def __str__(self):
+        return self.name
