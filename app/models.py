@@ -22,3 +22,12 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Sponsorship(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    sponsor = models.ForeignKey(Sponsor, on_delete=models.CASCADE)
+    redirect_url = models.URLField()
+
+    def __str__(self):
+        return self.sponsor.name + " -> " + self.property.name
