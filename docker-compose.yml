@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  db:
+    image: postgres:10.1-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      DATABASE_URL: psql://postgres:postgres@db:5432/postgres
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
