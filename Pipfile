@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-Django = "*"
+django = "*"
 django-environ = "*"
 "psycopg2" = "*"
 dj-database-url = "*"
@@ -22,6 +22,7 @@ whitenoise = "*"
 [dev-packages]
 
 ipdb = "*"
+isort = "*"
 
 
 [requires]

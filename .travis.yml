@@ -1,0 +1,11 @@
+sudo: false
+language: python
+python:
+  - "3.6"
+env:
+  - PYTHONPATH="$TRAVIS_BUILD_DIR/codesponsor/"
+install:
+  - cp code_sponsor/.env-sample code_sponsor/.env
+  - pipenv install
+script:
+  - python manage.py test
