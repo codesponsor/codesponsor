@@ -1,14 +1,17 @@
 # Code Sponsor
 
+Code Sponsor provides funding for open source projects through ethical advertising.
+
 ## Partnership
 
 Code Sponsor is a proud partner of [Gitcoin](https://codesponsor.io/t/c/e60d8217823be14100be63adb5d31a79/).
+Gitcoin pushes Open Source Forward. Learn more at [https://gitcoin.co](https://codesponsor.io/t/c/e60d8217823be14100be63adb5d31a79/)
 
 <img src='https://codesponsor.io/t/l/e60d8217823be14100be63adb5d31a79/pixel.png' style='width:1px; height:1px;' >
 
-# Running Locally
+## Running Locally
 
-## With Docker
+### With Docker
 
 ```
 git clone https://github.com/codesponsor/codesponsor.git
@@ -18,7 +21,7 @@ docker-compose up -d
 ```
 Navigate to `http://0.0.0.0:8000/`.
 
-## Without Docker
+### Without Docker
 
 ```
 git clone https://github.com/codesponsor/codesponsor.git
@@ -29,7 +32,7 @@ cp code_sponsor/.env-sample code_sponsor/.env
 
 You will need to edit the `code_sponsor/.env` file with your local environment settings.
 
-## Setup Database
+### Setup Database
 
 PostgreSQL is the database used by this application. Here are some instructions for installing PostgreSQL on various operating systems.
 
@@ -60,7 +63,7 @@ DATABASE_URL=psql://codesponsor_user:password@127.0.0.1:5432/codesponsor_develop
 ```
 
 
-## Startup server
+### Startup server
 
 
 ```
@@ -73,7 +76,7 @@ pipenv run python manage.py runserver 0.0.0.0:8000
 Navigate to [http://localhost:8000/](http://localhost:8000/)
 
 
-# Legal
+## Legal
 
 ```
 Copyright (C) 2018 Code Sponsor
@@ -92,7 +95,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 ```
 
-# License
+## License
 [GNU AFFERO GENERAL PUBLIC LICENSE](./LICENSE)
 
 <!-- Google Analytics -->

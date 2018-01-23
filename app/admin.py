@@ -1,5 +1,6 @@
 from django.contrib import admin
-from app.models import Sponsor, Property, Sponsorship
+
+from app.models import Property, Sponsor, Sponsorship
 
 
 class SponsorAdmin(admin.ModelAdmin):
