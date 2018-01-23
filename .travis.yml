@@ -5,7 +5,8 @@ python:
 env:
   - PYTHONPATH="$TRAVIS_BUILD_DIR/codesponsor/"
 install:
-  - cp code_sponsor/.env-sample code_sponsor/.env
-  - pipenv install
+  - "pip install -e . --upgrade"
+  - "cp code_sponsor/.env-sample code_sponsor/.env"
+  - "pipenv install --dev"
 script:
-  - python manage.py test
+  - "pipenv run pytest tests"

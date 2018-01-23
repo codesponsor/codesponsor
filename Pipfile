@@ -23,6 +23,12 @@ whitenoise = "*"
 
 ipdb = "*"
 isort = "*"
+pytest = "*"
+pytest-xdist = "*"
+mock = "*"
+sphinx = "<=1.5.5"
+sphinx-click = "*"
+twine = "*"
 
 
 [requires]
