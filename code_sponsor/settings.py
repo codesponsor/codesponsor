@@ -1,4 +1,5 @@
 import socket
+
 import environ
 
 root = environ.Path(__file__) - 2  # Set the base directory to two levels
