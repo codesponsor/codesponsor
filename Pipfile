@@ -23,6 +23,7 @@ whitenoise = "*"
 
 ipdb = "*"
 isort = "*"
+"flake8" = "*"
 
 
 [requires]

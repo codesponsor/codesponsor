@@ -8,5 +8,6 @@ install:
   - "pip install pipenv"
   - "cp code_sponsor/.env-sample code_sponsor/.env"
   - "pipenv install --dev"
-test:
+script:
+  - "pipenv run flake8 --ignore=E501,F401,E128,E402,E731,F821"
   - "pipenv run python manage.py test"
