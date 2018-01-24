@@ -8,5 +8,5 @@ install:
   - "pip install pipenv"
   - "cp code_sponsor/.env-sample code_sponsor/.env"
   - "pipenv install --dev"
-script:
-  - "pipenv run pytest tests"
+test:
+  - "pipenv run python manage.py test"
