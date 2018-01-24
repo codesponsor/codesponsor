@@ -2,11 +2,10 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
+import rollbar
 from app.models import Sponsorship
 
 from .models import Click, Impression
-
-import rollbar
 
 
 def pixel(request, token):
