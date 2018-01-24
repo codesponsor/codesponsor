@@ -6,6 +6,8 @@ from app.models import Sponsorship
 
 from .models import Click, Impression
 
+import rollbar
+
 
 def pixel(request, token):
     try:
@@ -18,8 +20,6 @@ def pixel(request, token):
 
     if sponsorship:
         if ip_address:
-            print("IP ADDRESS: {0}".format(ip_address))
-
             impression = Impression(sponsorship=sponsorship)
 
             # Denormalize for speed of query
@@ -31,6 +31,16 @@ def pixel(request, token):
             impression.is_bot = False  # TODO
 
             impression.save()
+
+        else:
+            rollbar.report_message(
+                "[pixel] Pixel request without IP address for token: {0}".
+                format(token), "warning")
+
+    else:
+        rollbar.report_message(
+            "[pixel] Pixel request without sponsorship for token: {0}".format(
+                token), "warning")
 
     BASE_DIR = getattr(settings, "BASE_DIR", None)
     image_data = open(BASE_DIR + "/static/images/pixel.png", "rb").read()
@@ -49,8 +59,6 @@ def track_click(request, token):
 
     if sponsorship:
         if ip_address:
-            print("IP ADDRESS: {0}".format(ip_address))
-
             click = Click(sponsorship=sponsorship)
 
             # Denormalize for speed of query
@@ -67,11 +75,15 @@ def track_click(request, token):
             return HttpResponseRedirect(sponsorship.redirect_url)
 
         else:
-            print("IP Address is not provided in request")
+            rollbar.report_message(
+                "[track_click] IP Address is not provided in request for token: {0}".
+                format(token), "warning")
             return HttpResponseRedirect('https://codesponsor.io')
 
     else:
-        print("Sponsorship not found for token: {0}".format(token))
+        rollbar.report_message(
+            "[track_click] Sponsorship not found for token: {0}".format(token),
+            "warning")
         return HttpResponseRedirect('https://codesponsor.io')
 
 
