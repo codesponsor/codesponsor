@@ -14,7 +14,6 @@ def pixel(request, token):
         sponsorship = None
 
     user_agent = request.META.get('HTTP_USER_AGENT', None)
-    referer = request.META.get('HTTP_REFERER', 'None')
     ip_address = get_client_ip(request)
 
     if sponsorship:
