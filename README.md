@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/codesponsor/codesponsor.svg?style=flat-square)]()
+
 # Code Sponsor
 
 Code Sponsor provides funding for open source projects through ethical advertising.
