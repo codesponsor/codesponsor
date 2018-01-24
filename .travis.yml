@@ -2,12 +2,17 @@ sudo: false
 language: python
 python:
   - "3.6.4"
+services:
+  - postgresql
 env:
   - PYTHONPATH="$TRAVIS_BUILD_DIR/codesponsor/"
 install:
   - "pip install pipenv"
   - "cp code_sponsor/.env-sample code_sponsor/.env"
   - "pipenv install --dev"
+before_script:
+  - psql -c 'create database codesponsor_development;' -U postgres
+
 script:
   - "pipenv run flake8 --ignore=E501,F401,E128,E402,E731,F821"
   - "pipenv run python manage.py test"
