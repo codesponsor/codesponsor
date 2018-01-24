@@ -6,7 +6,7 @@ root = environ.Path(__file__) - 2  # Set the base directory to two levels
 env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
 try:
     env.read_env()
-except:
+except IOError:
     pass
 
 DEBUG = env.bool('DEBUG', default=True)
@@ -81,24 +81,26 @@ DATABASES = {
     'default': env.db(),
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -107,7 +109,6 @@ USE_I18N = env.bool('USE_I18N', default=True)
 USE_L10N = env.bool('USE_L10N', default=True)
 USE_TZ = env.bool('USE_TZ', default=True)
 TIME_ZONE = env('TIME_ZONE', default='UTC')
-
 
 # Static Assets
 STATIC_ROOT = str(root.path('staticfiles'))
