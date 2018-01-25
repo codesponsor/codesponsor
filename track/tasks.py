@@ -16,5 +16,3 @@ def record_impression(token, user_agent, ip_address):
     impression.is_bot = False  # TODO
 
     impression.save()
-
-    return impression
