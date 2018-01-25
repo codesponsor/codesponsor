@@ -6,6 +6,7 @@ import rollbar
 from app.models import Sponsorship
 
 from .models import Click, Impression
+from .tasks import record_impression
 
 
 def pixel(request, token):
@@ -19,17 +20,7 @@ def pixel(request, token):
 
     if sponsorship:
         if ip_address:
-            impression = Impression(sponsorship=sponsorship)
-
-            # Denormalize for speed of query
-            impression.property_id = sponsorship.property_id
-            impression.sponsor_id = sponsorship.sponsor_id
-            impression.user_agent = user_agent
-            impression.ip_address = ip_address
-
-            impression.is_bot = False  # TODO
-
-            impression.save()
+            record_impression.delay(token, user_agent, ip_address)
 
         else:
             rollbar.report_message(

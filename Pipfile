@@ -18,6 +18,7 @@ rollbar = "*"
 django-allauth = "*"
 whitenoise = "*"
 newrelic = "*"
+celery = "*"
 
 
 [dev-packages]
