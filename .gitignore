@@ -121,3 +121,6 @@ bin/prod
 bin/proxy
 bin/server
 bin/stage
+
+# purchased template (contact core team if you need them)
+assets/Canvab_v1.0

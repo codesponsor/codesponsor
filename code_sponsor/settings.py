@@ -53,7 +53,8 @@ ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [root.path('templates')],
+        'DIRS': [root.path('templates'),
+                 root.path('templates/allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,6 +148,11 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+LOGIN_URL = BASE_URL.rstrip('/') + '/accounts/login/'
+LOGOUT_URL = BASE_URL.rstrip('/') + '/accounts/logout/'
+LOGIN_REDIRECT_URL = BASE_URL.rstrip('/') + '/'
+
+CLOUDAMQP_URL = env('CLOUDAMQP_URL', default='amqp://')
 GA_TRACKING_ID = env('GA_TRACKING_ID', default='MISSING')
 USE_GA = env('DJANGO_USE_GA', default='False')
 USE_GA = {'True': True, 'False': False}.get(USE_GA, False)
