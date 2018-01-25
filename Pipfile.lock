@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e84053b67e09ea85fbc09f67c8d066448a86ee880da66745fc1e13aa821a75ed"
+            "sha256": "336b7c2627e8d2cc6ac4630f73f0c02b331250ca2f63294419815d06669a2f93"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -126,6 +126,12 @@
                 "sha256:6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64"
             ],
             "version": "==0.9.3"
+        },
+        "newrelic": {
+            "hashes": [
+                "sha256:b75123173ac5e8a20aa9d8120e20a7bf45c38a5aa5a4672fac6ce4c3e0c8046e"
+            ],
+            "version": "==2.100.0.84"
         },
         "oauthlib": {
             "hashes": [
