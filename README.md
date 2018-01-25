@@ -1,4 +1,6 @@
-[![Travis](https://img.shields.io/travis/codesponsor/codesponsor.svg?style=flat-square)]()
+[![Travis](https://img.shields.io/travis/codesponsor/codesponsor.svg)]()
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/codesponsor/codesponsor.svg?columns=all)](https://waffle.io/codesponsor/codesponsor)
+
 
 # Code Sponsor
 

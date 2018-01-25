@@ -6,7 +6,7 @@ import rollbar
 from app.models import Sponsorship
 
 from .models import Click, Impression
-from .tasks import record_impression
+from .tasks import record_click, record_impression
 
 
 def pixel(request, token):
@@ -49,18 +49,7 @@ def track_click(request, token):
 
     if sponsorship:
         if ip_address:
-            click = Click(sponsorship=sponsorship)
-
-            # Denormalize for speed of query
-            click.property_id = sponsorship.property_id
-            click.sponsor_id = sponsorship.sponsor_id
-            click.user_agent = user_agent
-            click.referer = referer
-            click.ip_address = ip_address
-
-            click.is_bot = False  # TODO
-
-            click.save()
+            record_click.delay(token, user_agent, ip_address, referer)
 
             return HttpResponseRedirect(sponsorship.redirect_url)
 
