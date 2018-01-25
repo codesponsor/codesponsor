@@ -113,5 +113,11 @@ ENV/
 local_settings.py
 staticfiles/*
 NOTES.txt
+
+# administrative scripts
 bin/copy_prod_to_local
+bin/copy_prod_to_stage
+bin/prod
+bin/proxy
 bin/server
+bin/stage
