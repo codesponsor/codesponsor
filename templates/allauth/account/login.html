@@ -1,0 +1,149 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Code Sponsor | Sign In
+  </title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'images/apple-icon-57x57.png' %}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'images/apple-icon-60x60.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/apple-icon-72x72.png' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/apple-icon-76x76.png' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/apple-icon-114x114.png' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/apple-icon-120x120.png' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/apple-icon-144x144.png' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/apple-icon-152x152.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-icon-180x180.png' %}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/android-icon-192x192.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/favicon-96x96.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'images/manifest.json' %}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{% static 'images/ms-icon-144x144.png' %}">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link href="{% static 'home/css/magnific-popup.css' %}" rel="stylesheet">
+  <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'home/css/materialdesignicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'home/css/menu.css' %}" rel="stylesheet">
+  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<!-- TAGLINE HEADER START-->
+<div class="topbar">
+  <div class="container">
+    <div class="float-left">
+      <div class="phone-topbar">
+        <p class="mb-0">Help +1 801 633 9555</p>
+      </div>
+    </div>
+    <div class="float-right">
+      <ul class="list-inline social pb-0 pt-2">
+        <li class="list-inline-item pl-2">
+          <a href="https://twitter.com/codesponsor" class="text-white">
+            <i class="mdi mdi-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item pl-2">
+          <a href="https://slack.codesponsor.io" class="text-white">
+            <i class="mdi mdi-slack"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- Static navbar -->
+
+<!-- Navigation Bar-->
+<header id="topnav" class="defaultscroll sticky fixed-top">
+  <div class="container">
+    <!-- Logo container-->
+    <div>
+      <a href="/" class="logo">
+        <img src="{% static 'images/code-sponsor-logo-light.png' %}" style="height: 24px;" class="img-fluid" />
+      </a>
+    </div>
+    <!-- End Logo container-->
+    <div class="menu-extras">
+
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+        <!-- End mobile menu toggle-->
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Navigation Bar-->
+
+<!-- START HOME  -->
+<section class="bg-custom section">
+  <div class="login-table">
+    <div class="login-table-cell">
+      <div class="container">
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-4">
+            <div class="text-center">
+              <h1 class="text-white">Login</h1>
+            </div>
+            <div class="bg-white p-4 mt-5 rounded">
+              <form class="login-form" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <div class="row">
+                  <div class="col-lg-12 mt-4">
+                    <input type="text" class="form-control" placeholder="Username" required="" id="id_login" name="login">
+                  </div>
+                  <div class="col-lg-12 mt-4">
+                    <input type="password" class="form-control" placeholder="Password" required="" id="id_password" name="password">
+                  </div>
+                  <div class="col-lg-12 mt-4">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="id_remember" name="remember">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Remember Me</span>
+                    </label>
+                  </div>
+                  <div class="col-lg-12 mt-4 mb-4">
+                    <button class="btn btn-custom w-100">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="text-center mt-3">
+              <p>
+                <a href="{% url 'account_reset_password' %}" class="text-white text-center text-capitalize font-weight-bold">Forgot Your password ?</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END HOME -->
+
+{% endblock %}

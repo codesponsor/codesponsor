@@ -63,8 +63,6 @@
   </div>
   <!-- Static navbar -->
   
-  
-  
   <!-- Navigation Bar-->
   <header id="topnav" class="defaultscroll sticky fixed-top">
     <div class="container">
@@ -104,15 +102,25 @@
           <li class="">
             <a href="#contact">Contact</a>
           </li>
+          
+          <li class="">
+            <a href="https://medium.com/@codesponsor/">Blog</a>
+          </li>
+          
+          <li class="">
+            <a href="https://eepurl.com/cVELcz">Newsletter</a>
+          </li>
         </ul>
         <ul class="navigation-menu menu-right">
-          <li class="mobile-none">
-            <a href="https://medium.com/@codesponsor/">
-               Blog</a>
-          </li>
-          <li class="mobile-none"><a href="https://eepurl.com/cVELcz">
-            Newsletter</a>
-          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'account_logout' %}">Sign Out</a>
+            </li>
+            {% else %}
+            <li>
+              <a href="{% url 'account_login' %}">Sign In</a>
+            </li>
+          {% endif %}
         </ul>
         <!-- End navigation menu-->
       </div>
