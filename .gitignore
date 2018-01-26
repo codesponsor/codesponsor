@@ -121,3 +121,4 @@ bin/prod
 bin/proxy
 bin/server
 bin/stage
+assets

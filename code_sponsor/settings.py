@@ -150,3 +150,12 @@ SOCIALACCOUNT_PROVIDERS = {
 GA_TRACKING_ID = env('GA_TRACKING_ID', default='MISSING')
 USE_GA = env('DJANGO_USE_GA', default='False')
 USE_GA = {'True': True, 'False': False}.get(USE_GA, False)
+
+
+# Celery config
+CELERY_TASK_IGNORE_RESULT = True
+CELERY_DISABLE_RATE_LIMITS = True
+CELERY_TASK_SERIALIZER = "json"
+CELERY_ACCEPT_CONTENT = ["json"]
+BROKER_URL = env('CLOUDAMQP_URL', default='amqp://')
+CELERY_RESULT_BACKEND = env('CLOUDAMQP_URL', default='amqp://')
