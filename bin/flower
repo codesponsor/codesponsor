@@ -1,0 +1,2 @@
+#!/bin/sh
+pipenv run celery flower -A code_sponsor --port=5555
