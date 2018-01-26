@@ -4,7 +4,7 @@ from celery import task
 from .models import Click, Impression
 
 
-@task
+@task(ignore_result=True)
 def record_impression(token, user_agent, ip_address):
     sponsorship = Sponsorship.objects.get(token=token)
     impression = Impression(sponsorship=sponsorship)
@@ -18,7 +18,7 @@ def record_impression(token, user_agent, ip_address):
     impression.save()
 
 
-@task
+@task(ignore_result=True)
 def record_click(token, user_agent, ip_address, referer):
     sponsorship = Sponsorship.objects.get(token=token)
     click = Click(sponsorship=sponsorship)

@@ -19,6 +19,7 @@ django-allauth = "*"
 whitenoise = "*"
 newrelic = "*"
 celery = "*"
+flower = "*"
 
 
 [dev-packages]
