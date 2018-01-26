@@ -153,9 +153,8 @@ USE_GA = {'True': True, 'False': False}.get(USE_GA, False)
 
 
 # Celery config
+BROKER_URL = env('CLOUDAMQP_URL', default='amqp://')
 CELERY_TASK_IGNORE_RESULT = True
 CELERY_DISABLE_RATE_LIMITS = True
 CELERY_TASK_SERIALIZER = "json"
 CELERY_ACCEPT_CONTENT = ["json"]
-BROKER_URL = env('CLOUDAMQP_URL', default='amqp://')
-CELERY_RESULT_BACKEND = env('CLOUDAMQP_URL', default='amqp://')

@@ -8,5 +8,5 @@ from celery import Celery
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'code_sponsor.settings')
 
 app = Celery('code_sponsor')
-app.config_from_object('django.conf:settings')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
