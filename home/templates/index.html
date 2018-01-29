@@ -130,8 +130,11 @@
             We Help Sustain Open Source
           </h1>
           <p class="home-subtitle mx-auto pt-2">we help fund open source projects through ethical advertising</p>
-          <div class="">
-            <img src="{% static 'home/images/macbook-devhints.png' %}" alt="" class="img-fluid center-block home-dashboard">
+          <div id="macbook-slideshow">
+            <img src="{% static 'home/images/macbook-border.png' %}" alt="" class="macbook img-fluid center-block home-dashboard">
+            <img src="{% static 'home/images/macbook-devhints.png' %}" alt="" class="slide img-fluid center-block home-dashboard">
+            <img src="{% static 'home/images/macbook-jsbin.png' %}" alt="" class="slide img-fluid center-block home-dashboard">
+            <img src="{% static 'home/images/macbook-codesandbox.png' %}" alt="" class="slide img-fluid center-block home-dashboard">
           </div>
         </div>
       </div>
@@ -238,6 +241,7 @@
   <script src="{% static 'home/js/jquery.counterup.min.js' %}" type="text/javascript"></script>
   <!--common script for all pages-->
   <script src="{% static 'home/js/jquery.app.js' %}" type="text/javascript"></script>
+  <script src="{% static 'home/js/macbook-slideshow.js' %}" type="text/javascript"></script>
   <script type="text/javascript">
     $(".element").each(function () {
       var $this = $(this);

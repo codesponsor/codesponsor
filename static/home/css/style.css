@@ -226,6 +226,28 @@ a {
 }
 
 
+/*--MACBOOK SLIDESHOW--*/
+
+#macbook-slideshow {
+    position: relative;
+}
+
+/* Place macbook in front of slides */
+#macbook-slideshow img.macbook {
+    z-index: 1;
+    position: absolute;
+}
+
+/* Display slides behind the macbook */
+#macbook-slideshow > img.slide {
+    z-index: 0;
+}
+
+/* Select all slides except the first one and hide them */
+#macbook-slideshow > img.slide ~ img.slide {
+    display: none;
+}
+
 /*====================
     3.Features
 =====================*/
