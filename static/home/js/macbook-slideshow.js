@@ -1,6 +1,6 @@
 var slides = $('#macbook-slideshow .slide');
 var currentSlide = 0;
-var slideInterval = setInterval(nextSlide,3500);
+var slideInterval = setInterval(nextSlide,8000);
 
 function nextSlide() {
     $(slides[currentSlide]).hide();
