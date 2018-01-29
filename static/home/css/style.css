@@ -232,18 +232,21 @@ a {
     position: relative;
 }
 
+/* Place macbook in front of slides */
 #macbook-slideshow img.macbook {
     z-index: 1;
     position: absolute;
 }
 
-#macbook-slideshow img.slide {
-    z-index: 0;
-    display: none;
+/* Select all slides and display inline */
+#macbook-slideshow > img.slide {
+    display: inline;
 }
 
-#macbook-slideshow img.slide.active {
-    display: inline;
+/* Select all slides but the first one and hide them */
+#macbook-slideshow > img.slide ~ img.slide {
+    z-index: 0;
+    display: none;
 }
 
 /*====================
