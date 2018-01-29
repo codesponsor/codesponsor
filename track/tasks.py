@@ -6,6 +6,8 @@ from .models import Click, Impression
 
 @app.task(ignore_result=True)
 def record_impression(token, user_agent, ip_address):
+    print("Recording impression for token: {0} ({1})".format(
+        token, ip_address))
     sponsorship = Sponsorship.objects.get(token=token)
     impression = Impression(sponsorship=sponsorship)
 
@@ -20,6 +22,8 @@ def record_impression(token, user_agent, ip_address):
 
 @app.task(ignore_result=True)
 def record_click(token, user_agent, ip_address, referer):
+    print("Recording click for token: {0} ({1})".format(
+        token, ip_address))
     sponsorship = Sponsorship.objects.get(token=token)
     click = Click(sponsorship=sponsorship)
 
