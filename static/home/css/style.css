@@ -238,14 +238,13 @@ a {
     position: absolute;
 }
 
-/* Select all slides and display inline */
+/* Display slides behind the macbook */
 #macbook-slideshow > img.slide {
-    display: inline;
+    z-index: 0;
 }
 
-/* Select all slides but the first one and hide them */
+/* Select all slides except the first one and hide them */
 #macbook-slideshow > img.slide ~ img.slide {
-    z-index: 0;
     display: none;
 }
 
