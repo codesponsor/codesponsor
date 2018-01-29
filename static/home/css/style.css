@@ -226,6 +226,26 @@ a {
 }
 
 
+/*--MACBOOK SLIDESHOW--*/
+
+#macbook-slideshow {
+    position: relative;
+}
+
+#macbook-slideshow img.macbook {
+    z-index: 1;
+    position: absolute;
+}
+
+#macbook-slideshow img.slide {
+    z-index: 0;
+    display: none;
+}
+
+#macbook-slideshow img.slide.active {
+    display: inline;
+}
+
 /*====================
     3.Features
 =====================*/
