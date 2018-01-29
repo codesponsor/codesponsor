@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'home',
     'track',
+    'sponsor',
     'storages',
     'allauth',
     'allauth.account',
@@ -52,10 +53,14 @@ ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [root.path('templates'),
-                 root.path('templates/allauth')],
-        'APP_DIRS': True,
+        'BACKEND':
+        'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            root.path('templates'),
+            root.path('templates/allauth')
+        ],
+        'APP_DIRS':
+        True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
