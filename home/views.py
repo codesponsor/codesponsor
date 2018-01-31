@@ -21,7 +21,7 @@ def mail(request):
             subject = form.cleaned_data['subject']
             content = form.cleaned_data['content']
 
-            recipients = ['ken.u.diggitt@gmail.com']
+            recipients = ['team@codesponsor.io']
 
             send_mail(subject, content, f"{name} <{email}>", recipients)
             messages.success(request, 'Success!')
