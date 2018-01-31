@@ -9,3 +9,9 @@ repos:
       - --settings-path
       - ./setup.cfg
       - .
+- repo: git://github.com/pre-commit/pre-commit-hooks
+  sha: v0.9.1
+  hooks:
+  - id: flake8
+    args:
+      - --ignore=E501,F401,E128,E402,E731,F821
