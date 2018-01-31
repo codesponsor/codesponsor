@@ -115,7 +115,4 @@ staticfiles/*
 NOTES.txt
 latest.dump*
 
-# administrative scripts
-bin/proxy
-
 assets
