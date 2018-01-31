@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.db.models import Count, Q
-from django.utils import timezone
 
 from .models import Click, Impression
 
