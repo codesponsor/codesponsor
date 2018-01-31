@@ -17,9 +17,6 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include
 
-from home import views as home_views
-from track import views as track_views
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
