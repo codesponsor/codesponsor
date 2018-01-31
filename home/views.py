@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
+from django.conf import settings
 from django.contrib import messages
 from .forms import ContactForm
+import requests
 
 
 def index(request):
@@ -23,9 +24,20 @@ def mail(request):
             subject = form.cleaned_data['subject']
             content = form.cleaned_data['content']
 
+            from_email = name + "<" + email + ">"
             recipients = ['team@codesponsor.io']
 
-            send_mail(subject, content, name + "<" + email + ">", recipients)
+            results = requests.post(
+                "https://api.mailgun.net/v3/{0}/messages".format(
+                    settings.MAILGUN_SENDING_DOMAIN),
+                auth=("api", settings.MAILGUN_API_KEY),
+                data={
+                    "from": from_email,
+                    "to": recipients,
+                    "subject": subject,
+                    "text": content
+                })
+
             messages.success(request, 'Success!')
             return HttpResponseRedirect('/')
     else:
