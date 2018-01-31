@@ -112,11 +112,15 @@
         </ul>
         <ul class="navigation-menu menu-right">
           <li class="mobile-none">
-            <a href="https://medium.com/@codesponsor/">
+            <a href="https://medium.com/code-sponsor">
                Blog</a>
           </li>
-          <li class="mobile-none"><a href="https://eepurl.com/cVELcz">
+          <li class="mobile-none"><a href="https://us16.campaign-archive.com/home/?u=e95ff716114dbc939f8ef6100&id=f036681f65">
             Newsletter</a>
+          </li>
+          <li class="mobile-none">
+            <a href="https://github.com/codesponsor/codesponsor">
+              Code</a>
           </li>
         </ul>
         <!-- End navigation menu-->
@@ -281,6 +285,9 @@
 
     $('.alert').alert()
   </script>
+  
+  <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+  <script type="text/javascript">require(["mojo/signup-forms/Loader"], function (L) { L.start({ "baseUrl": "mc.us16.list-manage.com", "uuid": "e95ff716114dbc939f8ef6100", "lid": "f036681f65" }) })</script>
   
   {% if use_ga %}
     {% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
