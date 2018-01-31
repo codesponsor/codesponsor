@@ -1,0 +1,3 @@
+#!/bin/sh
+# This script requires access to the Heroku servers
+HEROKU_APP=codesponsor HKAPP=codesponsor exec "${HEROKU_COMMAND:-heroku}" "$@"

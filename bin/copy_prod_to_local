@@ -1,0 +1,9 @@
+#!/bin/sh
+# This script requires access to the Heroku servers
+dropdb -h localhost -p 5433 codesponsor_development
+createdb -h localhost -p 5433 codesponsor_development
+heroku pg:backups:capture --app codesponsor
+heroku pg:backups:download --app codesponsor
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -p 5433 -d codesponsor_development latest.dump
+rm latest.dump
+echo "🚀 DONE!"
