@@ -4,11 +4,13 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .forms import ContactForm
 
+
 def index(request):
     if request.method == 'GET':
         form = ContactForm()
 
     return render(request, 'index.html', {'form': form})
+
 
 def mail(request):
     '''Send email via mailgun'''
@@ -23,7 +25,7 @@ def mail(request):
 
             recipients = ['team@codesponsor.io']
 
-            send_mail(subject, content, f"{name} <{email}>", recipients)
+            send_mail(subject, content, name + "<" + email + ">", recipients)
             messages.success(request, 'Success!')
             return HttpResponseRedirect('/')
     else:
