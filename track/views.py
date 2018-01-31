@@ -30,8 +30,8 @@ def pixel(request, token):
             "[pixel] Pixel request without sponsorship for token: {0}".format(
                 token), "warning")
 
-    BASE_DIR = getattr(settings, "BASE_DIR", None)
-    image_data = open(BASE_DIR + "/static/images/pixel.png", "rb").read()
+    base_dir = getattr(settings, "BASE_DIR", None)
+    image_data = open(base_dir + "/static/images/pixel.png", "rb").read()
     return HttpResponse(image_data, content_type="image/png")
 
 

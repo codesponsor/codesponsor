@@ -20,6 +20,7 @@ whitenoise = "*"
 newrelic = "*"
 celery = "*"
 flower = "*"
+requests = "*"
 
 
 [dev-packages]
