@@ -120,6 +120,7 @@ STATIC_ROOT = str(root.path('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     str(root.path('static')),
+    str(root.path('node_modules')),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
