@@ -163,8 +163,8 @@ CELERY_RESULT_BACKEND = None
 
 # Email config
 ANYMAIL = {
-    "MAILGUN_API_KEY": env('MAILGUN_API_KEY', default='False'),
-    "MAILGUN_SENDER_DOMAIN": env('MAILGUN_SENDING_DOMAIN', default='False'),
+    "MAILGUN_API_KEY": env('MAILGUN_API_KEY', default=''),
+    "MAILGUN_SENDER_DOMAIN": env('MAILGUN_SENDING_DOMAIN', default=''),
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
 DEFAULT_FROM_EMAIL = "team@codesponsor.io"
