@@ -1,0 +1,56 @@
+<div class="row justify-content-center pt-5">
+  <div class="col-md-8">
+    <div class="text-center">
+      <h3 class="section-title text-white pt-5">Contact us</h3>
+      <p class="section-subtitle pt-3 text-whte">Fill out the form below to contact our team</p>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-8 bg-white p-5 mt-4 rounded">
+
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-primary text-center alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %} {% endif %}
+
+    <form class="form-custom" action="contact/" method="POST">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="col-lg-6 mt-3">
+          {{ form.name }}
+        </div>
+        <div class="col-lg-6 mt-3">
+          {{ form.email }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mt-3">
+          {{ form.subject }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mt-3">
+          {{ form.content }}
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <button class="btn btn-custom">Submit</button>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="text-center submit-terms mb-0 mt-3">Fill out the form above to send an email to the Code Sponsor team.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

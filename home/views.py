@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -29,16 +30,7 @@ def mail(request):
             from_email = name + "<" + email + ">"
             recipients = ['team@codesponsor.io']
 
-            requests.post(
-                "https://api.mailgun.net/v3/{0}/messages".format(
-                    settings.MAILGUN_SENDING_DOMAIN),
-                auth=("api", settings.MAILGUN_API_KEY),
-                data={
-                    "from": from_email,
-                    "to": recipients,
-                    "subject": subject,
-                    "text": content
-                })
+            send_mail(subject, content, from_email, recipients)
 
             messages.success(request, 'Success!')
             return HttpResponseRedirect('/')
