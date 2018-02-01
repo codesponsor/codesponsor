@@ -9,16 +9,6 @@
 
 <div class="row justify-content-center mt-5">
   <div class="col-lg-8 bg-white p-5 mt-4 rounded">
-
-    {% if messages %} {% for message in messages %}
-    <div class="alert alert-primary text-center alert-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endfor %} {% endif %}
-
     <form class="form-custom" action="contact/" method="POST">
       {% csrf_token %}
 
