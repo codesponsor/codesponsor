@@ -1,18 +1,18 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1e5169fcfda8e368a362fb463d4d175d7a247f54bb2bc597e33dad42d13c2c1f"
+            "sha256": "64e33d3ae94dfd4dc02e1009241c3edf290ade252b6649e40fa69f800fedbd4f"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.4",
+            "implementation_version": "3.6.2",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
             "platform_release": "17.3.0",
             "platform_system": "Darwin",
             "platform_version": "Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64",
-            "python_full_version": "3.6.4",
+            "python_full_version": "3.6.2",
             "python_version": "3.6",
             "sys_platform": "darwin"
         },
@@ -101,16 +101,22 @@
         },
         "django": {
             "hashes": [
-                "sha256:52475f607c92035d4ac8fee284f56213065a4a6b25ed43f7e39df0e576e69e9f",
-                "sha256:d96b804be412a5125a594023ec524a2010a6ffa4d408e5482ab6ff3cb97ec12f"
+                "sha256:7c8ff92285406fb349e765e9ade685eec7271d6f5c3f918e495a74768b765c99",
+                "sha256:dc3b61d054f1bced64628c62025d480f655303aea9f408e5996c339a543b45f0"
             ],
-            "version": "==2.0.1"
+            "version": "==2.0.2"
         },
         "django-allauth": {
             "hashes": [
                 "sha256:95a9f7fbebe3e97ce3a541d213fc52492b50dac92f0f91483f58949189e5aa4f"
             ],
             "version": "==0.34.0"
+        },
+        "django-anymail": {
+            "hashes": [
+                "sha256:d079ae0d007503de7f57a0e3eceffe21eb264b7d9e227e6c398cacdb41f20580"
+            ],
+            "version": "==1.2"
         },
         "django-environ": {
             "hashes": [
@@ -125,6 +131,13 @@
                 "sha256:c8e33caf6270a1d64958361923fdd1a5e8b20207fe12a694f8787529794fe4b8"
             ],
             "version": "==1.6.3"
+        },
+        "django-widget-tweaks": {
+            "hashes": [
+                "sha256:0e8e3b7ebd1aafb2250d0f7614cfbad27017b3c727858ee3aee23748dd1f147d",
+                "sha256:0baee0b905286fde028fdbd0dd1d985d4656dab472b0fd4ca4cd556ee38a047e"
+            ],
+            "version": "==1.4.1"
         },
         "docutils": {
             "hashes": [
@@ -355,10 +368,11 @@
         },
         "isort": {
             "hashes": [
-                "sha256:cd5d3fc2c16006b567a17193edf4ed9830d9454cbeb5a42ac80b36ea00c23db4",
-                "sha256:79f46172d3a4e2e53e7016e663cc7a8b538bec525c36675fcfd2767df30b3983"
+                "sha256:d1a59d26140e407baeeca458b4871f15d664655003d5ae521fe914b451315331",
+                "sha256:385910ab5c46e364f496672634076ac612eeffd60f1007ebb050701c722ec870",
+                "sha256:beff82862fc587bef031c8b60485e41e1362d1f1cf1904be2aefb9f0027884c7"
             ],
-            "version": "==4.2.15"
+            "version": "==4.3.0"
         },
         "jedi": {
             "hashes": [

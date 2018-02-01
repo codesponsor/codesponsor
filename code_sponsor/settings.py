@@ -30,10 +30,12 @@ INSTALLED_APPS = [
     'home',
     'track',
     'storages',
+    'anymail',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +55,10 @@ ROOT_URLCONF = env('ROOT_URLCONF', default='code_sponsor.urls')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [root.path('templates')],
+        'DIRS': [
+            root.path('templates'),
+            root.path('templates/allauth')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,16 +142,6 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': [
-            'user',
-            'repo',
-            'read:org',
-        ],
-    }
-}
-
 GA_TRACKING_ID = env('GA_TRACKING_ID', default='MISSING')
 USE_GA = env('DJANGO_USE_GA', default='False')
 USE_GA = {'True': True, 'False': False}.get(USE_GA, False)
@@ -166,5 +161,26 @@ CELERY_TASK_SERIALIZER = "json"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_RESULT_BACKEND = None
 
-MAILGUN_SENDING_DOMAIN = env('MAILGUN_SENDING_DOMAIN', default='False')
-MAILGUN_API_KEY = env('MAILGUN_API_KEY', default='False')
+# Email config
+ANYMAIL = {
+    "MAILGUN_API_KEY": env('MAILGUN_API_KEY', default='False'),
+    "MAILGUN_SENDER_DOMAIN": env('MAILGUN_SENDING_DOMAIN', default='False'),
+}
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+DEFAULT_FROM_EMAIL = "team@codesponsor.io"
+
+# Allauth config
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}

@@ -21,6 +21,8 @@ newrelic = "*"
 celery = "*"
 flower = "*"
 requests = "*"
+django-widget-tweaks = "*"
+django-anymail = {extras = ["mailgun"]}
 
 
 [dev-packages]
