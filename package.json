@@ -1,0 +1,22 @@
+{
+  "name": "codesponsor",
+  "version": "1.0.0",
+  "description": "[![Travis](https://img.shields.io/travis/codesponsor/codesponsor.svg)]() [![Waffle.io - Columns and their card count](https://badge.waffle.io/codesponsor/codesponsor.svg?columns=all)](https://waffle.io/codesponsor/codesponsor)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesponsor/codesponsor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codesponsor/codesponsor/issues"
+  },
+  "homepage": "https://github.com/codesponsor/codesponsor#readme",
+  "dependencies": {
+    "noty": "^3.2.0-beta"
+  }
+}

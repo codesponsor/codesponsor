@@ -116,3 +116,6 @@ NOTES.txt
 latest.dump*
 
 assets
+
+# npm
+node_modules/
