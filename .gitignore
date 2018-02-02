@@ -110,10 +110,12 @@ ENV/
 # mypy
 .mypy_cache/
 
-node_modules
 local_settings.py
 staticfiles/*
 NOTES.txt
 latest.dump*
 webpack-stats.json
 *.hot-update.json
+
+# npm
+node_modules/
