@@ -6,7 +6,8 @@
     "node": "6.2.0"
   },
   "scripts": {
-    "heroku-prebuild": "npm install",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "./node_modules/.bin/prettier --write '**/*.js'",
     "lint": "eslint --ext .js ./assets/**/*.js",
