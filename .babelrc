@@ -1,6 +1,11 @@
 {
   "plugins": [
-    "transform-class-properties"
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ]
   ],
   "presets": [
     [

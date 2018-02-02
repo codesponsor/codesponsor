@@ -1,2 +1,3 @@
-const Turbolinks = require('turbolinks');
-Turbolinks.start();
+require("./axios");
+require("./turbolinks");
+require("./stimulus");
