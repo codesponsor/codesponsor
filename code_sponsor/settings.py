@@ -116,6 +116,9 @@ USE_L10N = env.bool('USE_L10N', default=True)
 USE_TZ = env.bool('USE_TZ', default=True)
 TIME_ZONE = env('TIME_ZONE', default='UTC')
 
+# Add support for axios
+CSRF_COOKIE_NAME = "csrftoken";
+
 # Static Assets
 STATIC_ROOT = str(root.path('staticfiles'))
 STATIC_URL = '/static/'

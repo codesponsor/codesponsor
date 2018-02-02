@@ -115,7 +115,7 @@ staticfiles/*
 NOTES.txt
 latest.dump*
 webpack-stats.json
-*.hot-update.json
+*.hot-update.*
 
 # npm
 node_modules/

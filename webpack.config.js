@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
   entry: [
@@ -18,29 +17,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: [{
-          loader: 'eslint-loader',
-          options: {
-            failOnError: true,
-            outputReport: {
-              filePath: 'checkstyle.xml',
-              formatter: require('eslint-friendly-formatter')
-            }
-          }
-        }]
-      },
-      {
         test: /\.js?$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env'],
+              plugins: ['transform-class-properties']
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -69,13 +56,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    
-    // don't reload if there is an error
-    new webpack.NoEmitOnErrorsPlugin(),
-    new BundleTracker({
-      filename: './webpack-stats.json'
-    })
   ],
   resolve: {
     alias: {

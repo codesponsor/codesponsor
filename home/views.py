@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 
 import requests
@@ -32,8 +32,13 @@ def mail(request):
 
             send_mail(subject, content, from_email, recipients)
 
-            messages.success(request, 'Success!')
-            return HttpResponseRedirect('/')
+            status = 201
+            
+        else:
+            status = 400
+
+        return JsonResponse(data={ 'errors': form.errors }, status=status)
+
     else:
         form = ContactForm()
 
