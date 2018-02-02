@@ -108,15 +108,15 @@
         },
         "django-allauth": {
             "hashes": [
-                "sha256:95a9f7fbebe3e97ce3a541d213fc52492b50dac92f0f91483f58949189e5aa4f"
+                "sha256:7b31526cccd1c46f9f09acf0703068e8a9669337d29eb065f7e8143c2d897339"
             ],
-            "version": "==0.34.0"
+            "version": "==0.35.0"
         },
         "django-anymail": {
             "hashes": [
-                "sha256:d079ae0d007503de7f57a0e3eceffe21eb264b7d9e227e6c398cacdb41f20580"
+                "sha256:6868f65ea15ea958591aecf222ddc3cf37970ca5441a035ddac285168720ed52"
             ],
-            "version": "==1.2"
+            "version": "==1.3"
         },
         "django-environ": {
             "hashes": [
@@ -368,11 +368,11 @@
         },
         "isort": {
             "hashes": [
-                "sha256:d1a59d26140e407baeeca458b4871f15d664655003d5ae521fe914b451315331",
-                "sha256:385910ab5c46e364f496672634076ac612eeffd60f1007ebb050701c722ec870",
-                "sha256:beff82862fc587bef031c8b60485e41e1362d1f1cf1904be2aefb9f0027884c7"
+                "sha256:d3faf77a0a39bd402f1aea97463bc0eeb36c48a7c4695b0ed56b542195e49c49",
+                "sha256:fd8ea1acf80ae343eb8e2dec17bfe9b78e231a43ea6d0744da6758be1b373553",
+                "sha256:b8b584d1223204a4948ba20d605d3e5421c5956455d8618feb5c2ccdae2b78ba"
             ],
-            "version": "==4.3.0"
+            "version": "==4.3.1"
         },
         "jedi": {
             "hashes": [

@@ -624,7 +624,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Config global for axios/django
  */
 _axios2.default.defaults.xsrfHeaderName = "X-CSRFToken";
-_axios2.default.defaults.xsrfCookieName = 'csrftoken';
+_axios2.default.defaults.xsrfCookieName = "csrftoken";
 
 exports.default = _axios2.default;
 
@@ -1550,7 +1550,7 @@ var defaultSchema = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(21);
-module.exports = __webpack_require__(61);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
@@ -2505,7 +2505,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var application = _stimulus.Application.start();
 
-application.register('contact-form', _contact_form_controller2.default);
+application.register("contact-form", _contact_form_controller2.default);
 
 /***/ }),
 /* 45 */
@@ -3572,7 +3572,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _stimulus = __webpack_require__(10);
 
-var _noty = __webpack_require__(62);
+var _noty = __webpack_require__(61);
 
 var _noty2 = _interopRequireDefault(_noty);
 
@@ -3598,15 +3598,12 @@ var _class = function (_Controller) {
   }
 
   _createClass(_class, [{
-    key: 'connect',
-    value: function connect() {
-      console.log("Hello, Stimulus!", this.element);
-    }
-  }, {
-    key: 'submit',
+    key: "submit",
     value: function submit(event) {
+      var _this2 = this;
+
       if (!this.element.checkValidity()) {
-        return false;
+        return;
       }
 
       event.preventDefault(); // Do not submit form
@@ -3616,23 +3613,32 @@ var _class = function (_Controller) {
       var subject = this.subjectTarget.value;
       var content = this.contentTarget.value;
 
-      _axios2.default.post(this.element.action, {
-        name: name, email: email, subject: subject, content: content
-      }).then(function (_response) {
+      var success = function success() {
+        _this2.element.reset();
+
         new _noty2.default({
           type: "success",
           text: "Your message was sent successfully",
           timeout: 3500,
           progressBar: true
         }).show();
-      }).catch(function (_error) {
+      };
+
+      var fail = function fail() {
         new _noty2.default({
           type: "error",
           text: "Oops! Your message was not sent",
           timeout: 3500,
           progressBar: true
         }).show();
-      });
+      };
+
+      _axios2.default.post(this.element.action, {
+        name: name,
+        email: email,
+        subject: subject,
+        content: content
+      }).then(success.bind(this)).catch(fail.bind(this));
     }
   }]);
 
@@ -3644,12 +3650,6 @@ exports.default = _class;
 
 /***/ }),
 /* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "application.css";
-
-/***/ }),
-/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* 
@@ -6776,6 +6776,12 @@ module.exports = g;
 /******/ ]);
 });
 //# sourceMappingURL=noty.js.map
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "application.css";
 
 /***/ })
 /******/ ]);

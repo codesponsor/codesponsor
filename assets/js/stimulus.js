@@ -1,7 +1,7 @@
-import { Application } from 'stimulus';
+import { Application } from "stimulus";
 
-import ContactFormController from './controllers/home/contact_form_controller';
+import ContactFormController from "./controllers/home/contact_form_controller";
 
 const application = Application.start();
 
-application.register('contact-form', ContactFormController);
+application.register("contact-form", ContactFormController);

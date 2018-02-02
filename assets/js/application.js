@@ -1,3 +1,3 @@
-require('./axios');
-require('./turbolinks');
-require('./stimulus');
+require("./axios");
+require("./turbolinks");
+require("./stimulus");

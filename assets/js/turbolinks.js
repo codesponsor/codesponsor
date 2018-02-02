@@ -1,2 +1,2 @@
-const Turbolinks = require('turbolinks');
+const Turbolinks = require("turbolinks");
 Turbolinks.start();

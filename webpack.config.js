@@ -1,18 +1,15 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  entry: [
-    './assets/js/application.js',
-    './assets/styles/application.scss',
-  ],
-  devtool: 'inline-source-map',
+  entry: ["./assets/js/application.js", "./assets/styles/application.scss"],
+  devtool: "inline-source-map",
   output: {
-    path: path.resolve(__dirname, 'static/bundles'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, "static/bundles"),
+    filename: "[name].js",
 
     // Tell django to use this URL to load packages and not use STATIC_URL + bundle_name
-    publicPath: 'http://localhost:8000/static/bundles/'
+    publicPath: "http://localhost:8000/static/bundles/"
   },
   module: {
     rules: [
@@ -21,54 +18,53 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['env'],
-              plugins: ['transform-class-properties']
-            },
-          },
-        ],
+              presets: ["env"],
+              plugins: ["transform-class-properties"]
+            }
+          }
+        ]
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].css',
-              outputPath: ''
+              name: "[name].css",
+              outputPath: ""
             }
           },
           {
-            loader: 'extract-loader'
+            loader: "extract-loader"
           },
           {
-            loader: 'css-loader'
+            loader: "css-loader"
           },
           {
-            loader: 'postcss-loader'
+            loader: "postcss-loader"
           },
           {
-            loader: 'sass-loader'
+            loader: "sass-loader"
           }
         ]
       }
     ]
   },
-  plugins: [
-  ],
+  plugins: [],
   resolve: {
     alias: {
-      modulesDirectories: path.resolve(__dirname, 'node_modules')
+      modulesDirectories: path.resolve(__dirname, "node_modules")
     },
-    extensions: ['.js']
+    extensions: [".js"]
   }
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   module.exports.plugins = [
     new webpack.DefinePlugin({
-      'process.env': {
+      "process.env": {
         NODE_ENV: '"production"'
       }
     }),
@@ -78,7 +74,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
-  ]
+  ];
 } else {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = "#source-map";
 }
