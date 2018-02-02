@@ -1,22 +1,43 @@
 {
   "name": "codesponsor",
   "version": "1.0.0",
-  "description": "[![Travis](https://img.shields.io/travis/codesponsor/codesponsor.svg)]() [![Waffle.io - Columns and their card count](https://badge.waffle.io/codesponsor/codesponsor.svg?columns=all)](https://waffle.io/codesponsor/codesponsor)",
-  "main": "index.js",
+  "description": "Code Sponsor helps software developer get paid through ethical advertising",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint --quiet --config .eslintrc ./assets/**/*.js",
+    "build": "webpack --config webpack.config.js --progress --colors",
+    "start": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codesponsor/codesponsor.git"
+    "url": "https://github.com/codesponsor/codesponsor"
   },
-  "author": "",
+  "author": "Code Sponsor https://github.com/codesponsor",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/codesponsor/codesponsor/issues"
   },
   "homepage": "https://github.com/codesponsor/codesponsor#readme",
-  "dependencies": {
-    "noty": "^3.2.0-beta"
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.16.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "extract-loader": "^1.0.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "node-sass": "^4.7.2",
+    "noty": "^3.2.0-beta",
+    "postcss-cli": "^4.1.1",
+    "postcss-loader": "^2.0.10",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0",
+    "webpack-bundle-tracker": "^0.2.1",
+    "webpack-dev-server": "^2.11.1"
   }
 }

@@ -1,0 +1,38 @@
+body.account_login .login-or {
+  text-align: center;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1; }
+  body.account_login .login-or:before {
+    border-bottom: 1px solid #eeeeee;
+    content: "";
+    margin: 0 auto;
+    /* this centers the line to the full width specified */
+    position: absolute;
+    /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 30%;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    width: 95%;
+    z-index: -1; }
+  body.account_login .login-or span {
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 15px; }
+
+body.account_login ul.socialaccount_providers {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  body.account_login ul.socialaccount_providers a.socialaccount_provider {
+    border: none; }
+    body.account_login ul.socialaccount_providers a.socialaccount_provider.github {
+      background-color: #333333; }
+      body.account_login ul.socialaccount_providers a.socialaccount_provider.github:before {
+        display: inline-block;
+        font: normal normal normal 24px/1 "Material Design Icons";
+        content: "\F2A4";
+        position: relative;
+        top: 3px;
+        right: 6px; }

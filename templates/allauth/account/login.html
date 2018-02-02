@@ -1,46 +1,79 @@
-{% extends "account/base.html" %}
+{% extends "layouts/home.html" %}
 
 {% load i18n %}
+{% load widget_tweaks %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}
+  {% trans "Sign In" %}
+{% endblock %}
 
 {% block content %}
+<section class="bg-custom section">
+  <div class="login-table">
+    <div class="login-table-cell">
+      <div class="container">
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-4">
+            <div class="text-center">
+              <h1 class="text-white">Login</h1>
+            </div>
+            <div class="bg-white p-4 mt-5 rounded">
+              {% get_providers as socialaccount_providers %}
 
-<h1>{% trans "Sign In" %}</h1>
+              {% if socialaccount_providers %}
+                <div class="socialaccount_ballot">
+                  <ul class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                  </ul>
+                </div>
 
-{% get_providers as socialaccount_providers %}
+                <h6 class="login-or"><span>or</span></h6>
+                
+                {% include "socialaccount/snippets/login_extra.html" %}
+              {% endif %}
 
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+              <form class="login-form" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
 
-<div class="socialaccount_ballot">
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
+                {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                {% endfor %}
+                  
+                {% for field in form.visible_fields %}
+                <div class="col-lg-12 mt-4">
+                    {% if not field.field.widget.input_type == 'checkbox' %}
+                      {{ field|add_class:'form-control' }}
+                      {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                      {% endfor %}
+                    {% else %}
+                      <label class="custom-control custom-checkbox">
+                        {{ field|add_class:'custom-control-input' }}
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{ field.label }}</span>
+                      </label>
+                    {% endif %}
+                  </div>
+                {% endfor %}
 
-  <div class="login-or">{% trans 'or' %}</div>
+                <div class="col-lg-12 mt-5 mb-4">
+                  <button class="btn btn-custom w-100">{% trans "Sign In" %}</button>
 
-</div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
-
+                  <a class="btn btn-link w-100" href="{% url 'account_reset_password' %}">
+                    {% trans "Forgot Password?" %}
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

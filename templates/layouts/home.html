@@ -1,4 +1,8 @@
-<!DOCTYPE html> {% load static %}
+<!DOCTYPE html>
+
+{% load static %}
+{% load app_extras %}
+
 <html lang="en">
 
 <head>
@@ -35,11 +39,14 @@
   <link href="{% static 'noty/lib/noty.css' %}" rel="stylesheet">
   <link href="{% static 'noty/lib/themes/mint.css' %}" rel="stylesheet">
   <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'home/css/custom.css' %}" rel="stylesheet">
+  <link href="{% static 'bundles/application.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body class="
+    {{ request.resolver_match.namespace }}
+    {{ request.resolver_match.view_name|search:":"|replace:"__" }}
+    {% block extra_body_classes %}{% endblock %}"
+>
   <!-- TAGLINE HEADER START-->
   <div class="topbar">
     <div class="container">
@@ -208,6 +215,8 @@
     });
 
   </script>
+
+  <script src="{% static 'bundles/main.js' %}" type="text/javascript"></script>
 
   <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
   <script type="text/javascript">require(["mojo/signup-forms/Loader"], function (L) { L.start({ "baseUrl": "mc.us16.list-manage.com", "uuid": "e95ff716114dbc939f8ef6100", "lid": "f036681f65" }) })</script> {% if use_ga %} {% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %} {% endif %}

@@ -114,8 +114,8 @@ local_settings.py
 staticfiles/*
 NOTES.txt
 latest.dump*
-
-assets
+webpack-stats.json
+*.hot-update.json
 
 # npm
 node_modules/
