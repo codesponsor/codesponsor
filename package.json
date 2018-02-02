@@ -2,6 +2,9 @@
   "name": "codesponsor",
   "version": "1.0.0",
   "description": "Code Sponsor helps software developer get paid through ethical advertising",
+  "engines": {
+    "node": "6.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "./node_modules/.bin/prettier --write '**/*.js'",
