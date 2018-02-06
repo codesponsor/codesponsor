@@ -1,5 +1,2 @@
 #!/bin/bash
-
-echo "-----> I'm post-compile hook"
-
 npm install && python manage.py collectstatic --noinput
