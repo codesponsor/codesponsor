@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "-----> I'm post-compile hook"
+
+export PATH=/app/.heroku/node/bin:$PATH
+./manage.py collectstatic --noinput

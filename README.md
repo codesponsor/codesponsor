@@ -80,6 +80,20 @@ pipenv run python manage.py runserver 0.0.0.0:8000
 Navigate to [http://localhost:8000/](http://localhost:8000/)
 
 
+### Deploying to Heroku
+
+Ensure you add the buildpacks:
+
+    $ heroku buildpacks:add --index 1 heroku/nodejs
+    $ heroku buildpacks:add --index 2 heroku/python
+
+Deploy to Heroku
+
+    $ heroku create
+    $ git push heroku master
+    $ heroku run python manage.py migrate
+    $ heroku open
+
 ## Legal
 
 ```
