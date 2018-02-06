@@ -12,7 +12,6 @@ import requests
 from .forms import ContactForm
 
 
-@ensure_csrf_cookie
 def index(request):
     if request.method == 'GET':
         form = ContactForm()
