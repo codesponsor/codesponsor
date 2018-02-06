@@ -2,5 +2,4 @@
 
 echo "-----> I'm post-compile hook"
 
-export PATH=/app/.heroku/node/bin:$PATH
 python manage.py collectstatic --noinput
