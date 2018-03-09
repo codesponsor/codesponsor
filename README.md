@@ -8,10 +8,10 @@ Code Sponsor provides funding for open source projects through ethical advertisi
 
 ## Partnership
 
-Code Sponsor is a proud partner of [Gitcoin](https://codesponsor.io/t/c/e60d8217823be14100be63adb5d31a79/).
-Gitcoin pushes Open Source Forward. Learn more at [https://gitcoin.co](https://codesponsor.io/t/c/e60d8217823be14100be63adb5d31a79/)
+Code Sponsor is a proud partner of [Gitcoin](https://code-sponsor-phx.herokuapp.com/t/c/e60d8217823be14100be63adb5d31a79/).
+Gitcoin pushes Open Source Forward. Learn more at [https://gitcoin.co](https://code-sponsor-phx.herokuapp.com/t/c/e60d8217823be14100be63adb5d31a79/)
 
-<img src='https://codesponsor.io/t/l/e60d8217823be14100be63adb5d31a79/pixel.png' style='width:1px; height:1px;' >
+<img src='https://code-sponsor-phx.herokuapp.com/t/l/e60d8217823be14100be63adb5d31a79/pixel.png' style='width:1px; height:1px;' >
 
 ## Running Locally
 
