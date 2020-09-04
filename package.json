@@ -48,7 +48,7 @@
     "file-loader": "^1.1.6",
     "glob": "^7.1.2",
     "js-yaml": "^3.10.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "noty": "^3.2.0-beta",
     "path-complete-extname": "^0.1.0",
     "postcss-cssnext": "^3.0.2",
