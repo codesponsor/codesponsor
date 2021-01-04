@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/codesponsor/codesponsor#readme",
   "devDependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
